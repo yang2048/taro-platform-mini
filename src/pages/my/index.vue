@@ -1,9 +1,13 @@
 <template>
-    <view class="index">
-      <text>我是个人中心！</text>
-    </view>
-  </template>
-  
-  <script >
+  <view class="index">
+    <text>我是个人中心！</text>
+  </view>
+</template>
 
-  </script>
+<script>
+definePageConfig({
+  navigationBarTitleText: '用户中心',
+  backgroundColor: '#eeffee',
+  usingComponents: {},
+});
+</script>

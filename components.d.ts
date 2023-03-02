@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     Footer: typeof import('./src/components/footer/footer.vue')['default']
     NumberDisplay: typeof import('./src/components/NumberDisplay.vue')['default']
     NumberSubmit: typeof import('./src/components/NumberSubmit.vue')['default']
+    NutAvatar: typeof import('@nutui/nutui-taro')['Avatar']
     NutBacktop: typeof import('@nutui/nutui-taro')['Backtop']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
     NutCell: typeof import('@nutui/nutui-taro')['Cell']

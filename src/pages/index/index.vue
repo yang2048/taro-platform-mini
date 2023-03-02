@@ -1,5 +1,32 @@
 <template>
-  <view className="container" class="bg-light">
+  <view className="container">
+        <!-- 顶部自定义导航 -->
+      <!-- <view class='custom-nav-bar' @click="goBack">
+        <Dongdong class='icon tn-icon-left'/>
+        <Dongdong class='icon tn-icon-home-capsule-fill'/>
+      </view> -->
+
+          <!-- 顶部自定义导航 -->
+    <tn-nav-bar fixed :isBack="false" :bottomShadow="false" backgroundColor="#FFFFFF">
+      <view class="custom-nav tn-flex tn-flex-col-center tn-flex-row-left">
+        <!-- 图标logo -->
+        <view class="custom-nav__back">
+          <view class="logo-pic tn-shadow-blur" style="background-image:url('https://tnuiimage.tnkjapp.com/logo/logo2.png')">
+            <view class="logo-image">
+            </view>
+          </view> 
+          <!-- <view class="tn-icon-left"></view> -->
+        </view>
+        <!-- 搜索框 -->
+        <view class="custom-nav__search tn-flex tn-flex-col-center tn-flex-row-center ">
+          <view class="custom-nav__search__box tn-flex tn-flex-col-center tn-flex-row-left tn-color-gray--dark tn-bg-gray--light">
+            <view class="custom-nav__search__icon tn-icon-search"></view>
+            <view class="custom-nav__search__text tn-padding-left-xs">搜搜学习资料</view>
+          </view>
+        </view>
+      </view>
+    </tn-nav-bar>
+
     <nut-backtop :bottom="80">
       <template v-slot:content>
         <view class="index">
@@ -9,12 +36,10 @@
           <!-- banner 轮播图 -->
           <banner-box></banner-box>
 
-          <!-- 通知 -->
-          <notice></notice>
-
           <!-- icons 图标 -->
           <icons></icons>
-
+          <Shop color='red' class='icon tn-icon-left'/>
+        <Share color='red' class='icon tn-icon-home-capsule-fill' />
           {{ msg }}
         <Dongdong />
         <view class="btn">
@@ -28,10 +53,17 @@
 </template>
 
 <script>
+definePageConfig({
+  navigationBarTitleText: '首页',
+  enablePullDownRefresh: true,
+  usingComponents: {},
+  navigationStyle: 'custom',
+});
+
 import { reactive, toRefs, onMounted } from 'vue';
 import { Router } from 'tarojs-router-next';
 
-import { Dongdong } from '@nutui/icons-vue-taro';
+import { Shop, Share, Dongdong } from '@nutui/icons-vue-taro';
 import Notice from './components/notice.vue';
 import BannerBox from './components/bannerBox.vue';
 import Icons from './components/icons.vue';
@@ -70,12 +102,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.index {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-}
-</style>
